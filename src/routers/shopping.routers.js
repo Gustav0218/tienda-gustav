@@ -1,5 +1,5 @@
 const {Router}=require('express');
-const router = Router ();
+const router = Router();
 const {getShopping,createShopping,editShopping,deleteShopping}=require('../controllers/shopping.controllers')
 
 router.get('/',getShopping);

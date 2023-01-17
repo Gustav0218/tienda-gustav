@@ -20,3 +20,6 @@ app.use("/customers", require("../src/routers/customers.routers"));
 
 /*Shopping */
 app.use("/shopping",require("../src/routers/shopping.routers"));
+
+/*Items */
+app.use("/products", require("../src/routers/product.routers"));
