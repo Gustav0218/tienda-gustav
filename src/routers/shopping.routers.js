@@ -4,7 +4,5 @@ const {getShopping,createShopping,editShopping,deleteShopping}=require('../contr
 
 router.get('/',getShopping);
 router.post('/',createShopping);
-router.put('/:id',editShopping);
-router.delete('/:id',deleteShopping);
 
 module.exports = router;

@@ -10,19 +10,9 @@ const createShopping=(req,res)=>{
     msgFormatConst('createShopping');
 }
 
-const editShopping=(req,res)=>{
-    res.send('Editando compra');
-    msgFormatConst('editShopping');
-}
-
-const deleteShopping=(req,res)=>{
-    res.send('Eliminando compra');
-    msgFormatConst('deleteShopping');
-}
 
 module.exports ={
     getShopping,
     createShopping,
-    editShopping,
-    deleteShopping
+    
 }
