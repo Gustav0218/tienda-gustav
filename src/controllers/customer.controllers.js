@@ -1,30 +1,37 @@
-const {msgFormatConst }=require('../helpers/helpers')
+const Customer = require("./../models/customer.Schema");
+const { msgFormatConst } = require("../helpers/helpers");
 
-const getCostumers=(req,res)=>{
-res.send ('Consultando usuario');
-msgFormatConst('getCustomers');
-}
+const getCostumers = async (req, res) => {
+  const Costumer = await Customer.find({});
+  //res.send ('Consultando usuario');
+  res.json(Costumer);
+  msgFormatConst("getCustomers");
+};
 
-const createCustomers=(req,res)=>{
-    res.send('Creando usuario');
-    msgFormatConst('createCustomers');
-}
+const createCustomers = async(req, res) => {
+  const customerNew=await Customer.create(req.body)
+  res.json(customerNew);
+  msgFormatConst("createCustomers");
+};
 
-const editCustomers=(req,res)=>{
-    req.param.id 
-    res.send('Editando usuario');
-    msgFormatConst('editCustomers');
-}
+const editCustomers =async (req, res) => {
+  const updateCustomers=await Customer.findByIdAndUpdate(req.params.id, req.body, {
+    new:true
+  })
+  res.json(updateCustomers)
+  msgFormatConst("editCustomers");
+};
 
-const deleteCustomers=(req,res)=>{
-    req.param.id 
-    res.send('Eliminando usuario');
-    msgFormatConst('deleteCustomers');
-}
+const deleteCustomers = async (req, res) => {
+  const customerDelete=await Customer.findByIdAndDelete(req.params.id)
+  res.send('Eliminando customer')
+  msgFormatConst("deleteCustomers");
+};
 
-module.exports={
- getCostumers,
- createCustomers,
- editCustomers,
- deleteCustomers
-}
+module.exports = {
+  getCostumers,
+  createCustomers,
+  editCustomers,
+  deleteCustomers,
+};
+

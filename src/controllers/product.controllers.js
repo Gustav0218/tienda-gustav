@@ -1,24 +1,30 @@
+const Products= require('./../models/product.Schema');
 const {msgFormatConst}=require('../helpers/helpers');
 
-const getProduct=(req,res)=>{
-    res.send('Consultando producto');
+const getProduct=async(req,res)=>{
+    const product=await Products.find({});
+    res.json(product);
     msgFormatConst('getProduct');
 }
 
-const createProduct=(req,res)=>{
-    res.send('Creando producto');
+const createProduct=async(req,res)=>{
+    const productNew=await Products.create(req.body)
+    res.json(productNew);
     msgFormatConst('createProduct');
 }
 
-const editProduct=(req,res)=>{
-
-    res.send('Editando producto');
+const editProduct=async(req,res)=>{
+     const updateProduct=await Products.findByIdAndUpdate(req.params.id, req.body,{
+        new:true
+     })
+    res.json(updateProduct);
     msgFormatConst('editProduct');
 
 }
 
-const deleteProduct=(req,res)=>{
-    res.send('Eliminando producto');
+const deleteProduct=async(req,res)=>{
+    const productDelete=await Products.findByIdAndDelete(req.params.id)
+    res.json(productDelete);
     msgFormatConst('deleteProduct');
 }
 
