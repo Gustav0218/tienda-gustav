@@ -1,8 +1,8 @@
 const msgFormatConst = (msj) => {
-    console.log(`Hola mundo`);
+    console.log(`-----Success------`);
 }
 
-const resApi=(req,res,data)=>{
+const resApi=(res,msg,data)=>{
     res.json({
         msg: msg,
         total: data.length,

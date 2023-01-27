@@ -1,15 +1,15 @@
 const Products= require('./../models/product.Schema');
-const {msgFormatConst}=require('../helpers/helpers');
+const {msgFormatConst, resApi}=require('../helpers/helpers');
 
 const getProduct=async(req,res)=>{
     const product=await Products.find({});
-    res.json(product);
+    resApi(res,'Data retreived', product);
     msgFormatConst('getProduct');
 }
 
 const createProduct=async(req,res)=>{
     const productNew=await Products.create(req.body)
-    res.json(productNew);
+    resApi(res,'Data added',productNew);
     msgFormatConst('createProduct');
 }
 
