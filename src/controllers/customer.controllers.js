@@ -49,12 +49,7 @@ const createCustomers = async (req, res) => {
 const verify = async (req, res) => {
   try {
     // CONFIRMAMOS QUE EL USUARIO EXISTA EN BASE DE DATOS Y RETORNAMOS SUS DATOS, EXCLUYENDO EL PASSWORD
-    console.log('*****');
-    console.log(req.body.email);
-    console.log('.-----');
-    
     const customer = await Customer.find({email:req.body.email}).select("-password");
-
     res.json({ customer });
   } catch (error) {
     // EN CASO DE ERROR DEVOLVEMOS UN MENSAJE CON EL ERROR
