@@ -1,0 +1,254 @@
+//Esta importación se hace por medio del Thunder Client. Se da `click` en la colecciòn
+//->Exportar, se seleciona la carpeta del proyecto como destino. 
+
+{
+  "client": "Thunder Client",
+  "collectionName": "Tienda de musica",
+  "dateExported": "2023-02-11T18:16:59.443Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "_id": "5444f604-6866-42cd-b152-b7bf80cc9c9a",
+      "name": "General",
+      "containerId": "",
+      "created": "2023-01-16T16:12:08.128Z",
+      "sortNum": 10000
+    },
+    {
+      "_id": "cd02b78b-99f0-485e-be70-760ec95a5a61",
+      "name": "Customers",
+      "containerId": "",
+      "created": "2023-01-16T17:52:36.599Z",
+      "sortNum": 30000
+    },
+    {
+      "_id": "ef74ebf4-174a-4748-88bf-c81a14654e09",
+      "name": "Shoppings",
+      "containerId": "",
+      "created": "2023-01-17T18:19:26.828Z",
+      "sortNum": 40000
+    },
+    {
+      "_id": "153fe052-40ca-4362-819f-0b78aa7f1a48",
+      "name": "Items",
+      "containerId": "",
+      "created": "2023-01-17T19:30:27.639Z",
+      "sortNum": 60000
+    }
+  ],
+  "requests": [
+    {
+      "_id": "df286e88-2090-47ef-9a54-52fc9ae0aca7",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "5444f604-6866-42cd-b152-b7bf80cc9c9a",
+      "name": "Homepage",
+      "url": "localhost:5000",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2023-01-16T16:13:09.069Z",
+      "modified": "2023-01-16T17:51:08.288Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "7d2021af-1f81-408a-ac43-57876856d0fc",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "cd02b78b-99f0-485e-be70-760ec95a5a61",
+      "name": "Customer list",
+      "url": "{{secu}}://{{url}}/customers",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2023-01-16T17:52:55.960Z",
+      "modified": "2023-02-02T02:39:00.139Z",
+      "headers": [
+        {
+          "name": "x-auth-token",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNDJkNDc4ZTU5OGQ4YjM0NDlmNDMzIn0sImlhdCI6MTY3NTMwNTQ5OCwiZXhwIjoxNjc1NjY1NDk4fQ.5knoFC_xMnzADtPxlQyqZheZLDjeSzNxnj9c-A6iRQM"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\":\"Hola mundo\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "11a241b2-c66d-4bd4-9b6a-ee36fa7ec385",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "cd02b78b-99f0-485e-be70-760ec95a5a61",
+      "name": "Create customer",
+      "url": "{{secu}}://{{url}}:{{port}}/customers",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2023-01-16T18:05:18.498Z",
+      "modified": "2023-01-27T20:00:07.447Z",
+      "headers": [
+        {
+          "name": "x-auth",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNDI5YWI3NDE5NWQ2YzMxMDc2MjAzIn0sImlhdCI6MTY3NDg0ODcwMSwiZXhwIjoxNjc1MjA4NzAxfQ.xOH2dBB-0v2cG3yienAw2FgMOrYE6j-pA--oViMoTR8"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\":\"Calamardo\",\n  \"email\":\"calamardo@gmail.com\",\n  \"password\":\"contraseña3\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "bb54c544-b21e-4988-bb62-5054ae30b7d5",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "cd02b78b-99f0-485e-be70-760ec95a5a61",
+      "name": "Login",
+      "url": "{{secu}}://{{url}}/customers/login",
+      "method": "POST",
+      "sortNum": 35000,
+      "created": "2023-01-27T18:28:51.814Z",
+      "modified": "2023-02-01T00:38:11.001Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n\"password\": \"contraseña3\",\n\"email\":\"calamardo@gmail.com\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "94468db1-30fe-4afb-a77c-4d1365223606",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "cd02b78b-99f0-485e-be70-760ec95a5a61",
+      "name": "Edit customer",
+      "url": "{{secu}}://{{url}}:{{port}}/customers/63d010a80a8e26f3eda68cd7",
+      "method": "PUT",
+      "sortNum": 40000,
+      "created": "2023-01-16T18:05:39.143Z",
+      "modified": "2023-01-27T19:02:23.025Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"_id\": \"63d010a80a8e26f3eda68cd7\",\n  \"name\": \"Gabriela\",\n  \"mail\": \"gaby@gmail.com\",\n  \"password\":\"Hola-mundo\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "9ae012a5-c680-416a-b46a-ed0d714afd79",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "cd02b78b-99f0-485e-be70-760ec95a5a61",
+      "name": "Delete customer",
+      "url": "localhost:5000/customers/63d42b0774195d6c3107620a",
+      "method": "DELETE",
+      "sortNum": 50000,
+      "created": "2023-01-16T18:05:53.514Z",
+      "modified": "2023-01-27T20:06:20.888Z",
+      "headers": [
+        {
+          "name": "x-auth-token",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNDJkNDc4ZTU5OGQ4YjM0NDlmNDMzIn0sImlhdCI6MTY3NDg0OTY1NCwiZXhwIjoxNjc1MjA5NjU0fQ.iY-HPC0xDm9zeQg9YaWBcFG2hxLASRkD9npozuSFyD4"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "3c5574da-3798-4af6-bcb5-b6afbccd2505",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "ef74ebf4-174a-4748-88bf-c81a14654e09",
+      "name": "Shopping list",
+      "url": "localhost:5000/shopping",
+      "method": "GET",
+      "sortNum": 70000,
+      "created": "2023-01-17T18:19:48.682Z",
+      "modified": "2023-01-17T18:20:04.061Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "2e8e207c-6761-4cc1-9515-1ba9073bb297",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "ef74ebf4-174a-4748-88bf-c81a14654e09",
+      "name": "Create shopping",
+      "url": "localhost:5000/shopping",
+      "method": "POST",
+      "sortNum": 90000,
+      "created": "2023-01-17T18:22:15.749Z",
+      "modified": "2023-01-17T18:22:35.452Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "06b78741-8541-49d0-9d63-a8394bdf2460",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "153fe052-40ca-4362-819f-0b78aa7f1a48",
+      "name": "Product list",
+      "url": "{{secu}}://{{url}}:{{port}}/products",
+      "method": "GET",
+      "sortNum": 120000,
+      "created": "2023-01-17T19:30:58.711Z",
+      "modified": "2023-01-24T17:55:44.141Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "40b14077-afd1-477b-906b-608bef8602de",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "153fe052-40ca-4362-819f-0b78aa7f1a48",
+      "name": "Create product",
+      "url": "{{secu}}://{{url}}:{{port}}/products",
+      "method": "POST",
+      "sortNum": 130000,
+      "created": "2023-01-17T19:31:51.533Z",
+      "modified": "2023-01-25T17:59:22.666Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\":\"Piano de cola\",\n  \"model\":\"Steinway 2016\",\n  \"price\":\"50,000\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "1f5f44ad-210e-4cdb-9a39-28b76b4a09ba",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "153fe052-40ca-4362-819f-0b78aa7f1a48",
+      "name": "Edit product",
+      "url": "{{secu}}://{{url}}:{{port}}/products/63d16455b530242a7a9956ba",
+      "method": "PUT",
+      "sortNum": 140000,
+      "created": "2023-01-17T19:32:37.531Z",
+      "modified": "2023-01-25T17:19:41.759Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"_id\": \"63d16455b530242a7a9956ba\",\n  \"name\": \"Flauta professional\",\n  \"model\": \"Yamaha\",\n  \"price\": \"5,000\",\n  \"__v\": 0\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "ac3f0e67-7433-4e90-a003-769e3d7eddff",
+      "colId": "ba07809e-08ba-4fba-89d6-25f1dd9c6276",
+      "containerId": "153fe052-40ca-4362-819f-0b78aa7f1a48",
+      "name": "Delete Products",
+      "url": "{{secu}}://{{url}}:{{port}}/products/63d16455b530242a7a9956ba",
+      "method": "DELETE",
+      "sortNum": 160000,
+      "created": "2023-01-17T19:50:15.771Z",
+      "modified": "2023-01-25T17:20:23.867Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    }
+  ]
+}
