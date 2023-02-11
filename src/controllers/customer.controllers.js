@@ -12,19 +12,18 @@ const getCostumers = async (req, res) => {
 const createCustomers = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-
     const salt = await bcryptjs.genSalt(10);
     const hashedPassword = await bcryptjs.hash(password, salt);
-
     const customerNew = await Customer.create({
       name: name,
       email: email,
       password: hashedPassword,
     });
-
-    /* const payload = {           Estas lineas de codigo estan demàs, ya que 
-      user: {                     nos interesa solamente que nos haga el cliente 
-        id: customerNew._id,     con su contraseña encriptada. NO que nos haga login enseguida. 
+    const payload = {
+      //Estas lineas de codigo estan demàs, ya que
+      user: {
+        //  nos interesa solamente que nos haga el cliente
+        id: customerNew._id, //con su contraseña encriptada. NO que nos haga login enseguida.
       },
     };
     jwt.sign(
@@ -35,14 +34,33 @@ const createCustomers = async (req, res) => {
       },
       (error, token) => {
         if (error) throw error;
-        res.json({ token });
+        msgFormatConst("createCustomers");
+        res.json(token);
       }
-    );*/
-    res.json({ msg: "Usuario creado", data: customerNew });
-    msgFormatConst("createCustomers");
+    );
+    // res.json({ msg: "Usuario creado", data: customerNew });
   } catch (error) {
     resApi(res, "Error en la peticiòn", {
       msg: error,
+    });
+  }
+};
+
+const verify = async (req, res) => {
+  try {
+    // CONFIRMAMOS QUE EL USUARIO EXISTA EN BASE DE DATOS Y RETORNAMOS SUS DATOS, EXCLUYENDO EL PASSWORD
+    console.log('*****');
+    console.log(req.body.email);
+    console.log('.-----');
+    
+    const customer = await Customer.find({email:req.body.email}).select("-password");
+
+    res.json({ customer });
+  } catch (error) {
+    // EN CASO DE ERROR DEVOLVEMOS UN MENSAJE CON EL ERROR
+    res.status(500).json({
+      msg: "Hubo un error",
+      error,
     });
   }
 };
@@ -118,4 +136,5 @@ module.exports = {
   loginCustomer,
   editCustomers,
   deleteCustomers,
+  verify,
 };
