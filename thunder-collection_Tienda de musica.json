@@ -1,6 +1,3 @@
-//Esta importación se hace por medio del Thunder Client. Se da `click` en la colecciòn
-//->Exportar, se seleciona la carpeta del proyecto como destino. 
-
 {
   "client": "Thunder Client",
   "collectionName": "Tienda de musica",
