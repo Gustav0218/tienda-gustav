@@ -1,5 +1,5 @@
 const Customer = require("./../models/customer.Schema");
-const { msgFormatConst, resApi } = require("../helpers/helpers");
+const { msgFormatConst, resApi, resApiError } = require("../helpers/helpers");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -22,7 +22,7 @@ const createCustomers = async (req, res) => {
       password: hashedPassword,
     });
 
-   /* const payload = {           Estas lineas de codigo estan demàs, ya que 
+    /* const payload = {           Estas lineas de codigo estan demàs, ya que 
       user: {                     nos interesa solamente que nos haga el cliente 
         id: customerNew._id,     con su contraseña encriptada. NO que nos haga login enseguida. 
       },
@@ -38,7 +38,7 @@ const createCustomers = async (req, res) => {
         res.json({ token });
       }
     );*/
-    res.json({msg:'Usuario creado',data: customerNew}) 
+    res.json({ msg: "Usuario creado", data: customerNew });
     msgFormatConst("createCustomers");
   } catch (error) {
     resApi(res, "Error en la peticiòn", {
@@ -49,15 +49,15 @@ const createCustomers = async (req, res) => {
 
 const loginCustomer = async (req, res) => {
   try {
-    const { email, password } = req.body
+    const { email, password } = req.body;
     let findCustomer = await Customer.findOne({
-      email: email
-    })
-    
+      email: email,
+    });
+
     if (!findCustomer) {
       return res.status(400).json({ msg: "El cliente no esta registrado" });
     }
-    
+
     const passSucces = await bcryptjs.compare(password, findCustomer.password);
     if (!passSucces) {
       return await res.status(400).json({
@@ -83,9 +83,14 @@ const loginCustomer = async (req, res) => {
       );
     }
   } catch (error) {
-    resApi(res, "Error en la peticiòn", {
-      msg: error,
-    });
+    resApiError(
+      res,
+      "Error en la peticiòn",
+      {
+        msg: error,
+      },
+      401
+    );
   }
 };
 

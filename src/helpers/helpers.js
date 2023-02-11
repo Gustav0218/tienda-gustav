@@ -1,16 +1,25 @@
 const msgFormatConst = (msj) => {
-    console.log(`-----Success------`);
-}
+  console.log(`-----Success------`);
+};
 
-const resApi=(res,msg,data)=>{
-    res.json({
-        msg: msg,
-        total: data.length,
-        data: data
-    })
-}
+const resApi = (res, msg, data) => {
+  res.json({
+    msg: msg,
+    total: data.length,
+    data: data,
+  });
+};
 
-module.exports ={
-    msgFormatConst,
-    resApi
-}
+const resApiError = (res, msg, data, code) => {
+  res.status(code).json({
+    msg: msg,
+    total: data.length,
+    data: data,
+  });
+};
+
+module.exports = {
+  msgFormatConst,
+  resApi,
+  resApiError,
+};
